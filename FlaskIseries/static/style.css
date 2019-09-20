@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+
+.table {
+	width: 100%;
+	margin:5px;
+	font-size:12px;
+	line-height:0.2;
+  	display:block;
+/*    	 background-color: lightblue;   */
+  
+}
+ 
+.form-control{
+	display:inline-block;
+}
+
+.ricerca{
+	 
+	position: fixed; 
+}
+.dati{
+ 
+	 padding-top: 80px;
+}
+#div1{
+	height:20%;
+}
+#myInput {
+    width: 20%; */
+  
+}
+
+#datepicker {
+    width: 20%; */
+  
+}
+
+
+#myButton {
+    width: 30%; */
+  
+}
+
+#porto {
+    background-color: red; */
+  
+} 
+ 
+thead {
+     
+    width: 100%;
+    
+}
+tbody {
+     
+    
+    width: 100%;
+    overflow: auto;
+}
+
+body {
+     
+    
+  padding-top: 50px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}

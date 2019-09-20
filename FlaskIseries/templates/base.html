@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - Consegnato</title>
+ <header>
+    {% block header %}
+ 
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"> 
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 	{% endblock %}
+ 
+ </header>
+ 
+ <body>
+  
+   <form action="/base" id="myForm" method="POST">
+   
+  	<div class="ricerca">
+    <input class="form-control" id="myInput" type="text" placeholder="Search.."></input> 
+    <input name="form1" type="submit" value="Aggiorna Consegnato" class="btn btn-primary" id="myButton"></input>
+    <input name="date" type="text" id="datepicker"> 
+    <input name="form1" type="submit" value="Ricarica" class="btn btn-primary" id="ricarica"></input>
+    <!-- <p>Date: <input name="date" type="text" id="datepicker"></p>   -->  
+    	<!-- <div class="input-group date">
+	   		<input type="text" class="form-control" value="12-02-2012">
+			   	<div class="input-group-addon">
+			      <span class="glyphicon glyphicon-th"></span>
+			    </div>  
+		</div> -->
+    </div>
+    
+   <div class="dati">
+ <table class="table table-striped table-dark"> 
+	 <thead id="thead">
+	    <tr>
+	     <!-- intestazione  -->
+	      <th scope="col" >C</th>
+       	  <th scope="col" >Bolla</th>
+	      <th scope="col">Porto</th>
+	      <th scope="col">Data</th>
+	      <th scope="col">Mittente</th>
+	      <th scope="col">.</th>
+	      <th scope="col">Destinatario</th>
+	      <th scope="col">.</th>
+	      <th scope="col">Riferimento</th>
+	      <th scope="col">Peso</th>
+	      <th scope="col">Volume</th>
+       	  <th scope="col">Colli</th>
+	    </tr>
+	  </thead>
+   <tbody id="myTable">
+		 <!-- For loop  -->
+		{%for i in range(0, len) %} 
+		 
+		<!-- table rows -->
+			<tr> 
+	 
+		  	{%for r in range(0, lenr) %} 
+		  	{%if r==0%}
+		  	<td> <input id="Checkbox" name="{{rows[i][0] }}" type="checkbox" class="checkid"></td> 
+		  	{%endif%}
+		  	{%if r==1%}
+			   
+	  		<td id="porto">{{rows[i][r] }}</td> 
+			  	 
+		  	{%endif%}
+		  	{%if r!=1%}
+	        <td >{{rows[i][r] }}</td> 
+	        {%endif%}
+		    {%endfor%} 
+			 </tr>  
+		{%endfor%} 
+		 </tbody>
+ 
+</table> 
+
+</div>
+ </form>
+
+ 
+<script type="text/javascript">
+
+// alert (typeof jQuery)
+/* if (typeof jQuery == "undefined") {
+	alert ("Jquert is not installed");
+	
+} else {
+	alert ("jquery")
+} */
+
+
+// $('#myForm').submit(function(e){
+//     e.preventDefault();
+//     $.ajax({
+//         url:'/base',
+//         type:'post',
+//         data:$('#myForm').serialize(),
+//         success:function(){
+//             //whatever you wanna do after the form is successfully submitted
+//         }
+//     });
+// });  
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+	  
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+ 
+$('.checkid').click(function() {
+	
+    var checked = $(this).is(':checked');
+    //alert (checked)
+    if (checked == true){
+    	var notType = $("#Checkbox").attr("name"); 
+	    //alert (notType);	 
+   		//alert("checked")
+   		
+   		//x.appendChild("righe");
+   		
+   		 var ord= document.getElementById("Checkbox").name;
+   	    	//alert (ord);
+   		//var x = document.createElement("input");
+   		//x.setAttribute("name", ord);
+   		 
+   		//document.getElementById("righe").appendChild(x);
+   		//alert(ord)
+      } else {
+        text.style.display = "none";
+      }
+     
+    $.ajax({
+        type: "POST",
+        data: { checked : checked },
+        success: function(data) {
+        	 
+        },
+        error: function() {
+//             alert('it broke');
+        },
+        complete: function() {
+          //    alert('it completed');
+        }
+    });
+});
+ 
+
+</script>
+ 
+  
+  </body>
+ 
