@@ -10,7 +10,8 @@ pip install Flask.
 
 pip install pyodbc (https://pypi.org/project/pyodbc/).
 
-This application work on pc or server windows. 
+This application work on pc or server windows-linux-pase.
+
 Launch the following command "python waitress_server.py" start the web server
 
 We have some more documentation getting things set up here: https://github.com/IBM/ibmi-oss-examples/blob/master/odbc/odbc.md
