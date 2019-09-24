@@ -1,8 +1,4 @@
-Flask Ibm Iseries.
-
-Flask_Iseries.
-
-Use flask framework.
+flask framework.
 
 Compatibility with Iseries S.O 5.3 or more.
 
@@ -12,7 +8,7 @@ pip install Flask.
 
 pip install pyodbc (https://pypi.org/project/pyodbc/).
 
-This application work on pc/server operating system windows-linux-pase.
+This application work on pc/server operating system windows-linux.
 
 Launch the following command "python waitress_server.py" start the web server
 
