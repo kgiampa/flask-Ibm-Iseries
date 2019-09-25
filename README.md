@@ -4,7 +4,7 @@ Use pypyodbc to connect db and IBM I Access for windows.
 
 pip install Flask.    
 
-pip install pyodbc (https://pypi.org/project/pyodbc/).
+pip install pypyodbc (https://pypi.org/project/pypyodbc/).
 
 This application work on pc/server operating system windows-linux.
 
