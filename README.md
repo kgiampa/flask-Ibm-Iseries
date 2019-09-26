@@ -15,5 +15,5 @@ Some more documentation, about odbc, getting things set up here: https://github.
 
 # About
 Example of a dynamic basic web application:
-db2 query (poweri or iseries) and data update
+db2 query (poweri or iseries) and data update.
 
