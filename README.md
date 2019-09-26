@@ -16,4 +16,4 @@ Some more documentation, about odbc, getting things set up here: https://github.
 # About
 Example of a dynamic basic web application:
 db2 query (poweri or iseries) and data update.
-In this case it is used to manage the delivery of transporters.
+In this case it is used to update the deliveries of the transporters.
