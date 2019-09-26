@@ -1,5 +1,5 @@
 # Prerequisites
-Compatibility with Iseries S.O 5.3 or more.
+Compatibility with Iseries S.O 5.1 or more.
 
 Use pypyodbc and odbc IBM I Access for windows to connect db .
 
